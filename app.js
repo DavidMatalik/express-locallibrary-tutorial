@@ -16,7 +16,6 @@ app.use(helmet())
 
 //Set up mongoose connection
 const mongoose = require('mongoose')
-const compression = require('compression')
 const mongoDB =
   'mongodb+srv://david:Donald100@cluster0.arato.mongodb.net/local_library?retryWrites=true&w=majority'
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
