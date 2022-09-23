@@ -9,15 +9,16 @@ const usersRouter = require('./routes/users')
 const catalogRouter = require('./routes/catalog')
 const compression = require('compression')
 const helmet = require('helmet')
+const dotenv = require('dotenv')
 
+dotenv.config()
 const app = express()
 
 app.use(helmet())
 
 //Set up mongoose connection
 const mongoose = require('mongoose')
-const dev_db_url =
-  'mongodb+srv://david:Donald100@cluster0.arato.mongodb.net/local_library?retryWrites=true&w=majority'
+const dev_db_url = process.env.DB_KEY
 const mongoDB = process.env.MONGODB_URI || dev_db_url
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
